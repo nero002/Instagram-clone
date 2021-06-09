@@ -1,4 +1,4 @@
-package com.nero.instagram_clone
+package com.nero.instagram_clone.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,8 +7,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.nero.instagram_clone.R
 import com.nero.instagram_clone.databinding.MainscreenBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainScreen : AppCompatActivity() {
 
     private lateinit var binding: MainscreenBinding
