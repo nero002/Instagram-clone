@@ -36,7 +36,7 @@ class MainScreen : AppCompatActivity() {
                 R.id.navigation_profile
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
     }
 }
