@@ -11,15 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InstagramClone">
-<<<<<<< HEAD
-        <activity android:name=".ui.SetUserName"></activity>
-        <activity android:name=".ui.LoginActivity"></activity>
-        <activity android:name=".ui.MainScreen"></activity>
+        <activity android:name=".ui.SetUserName" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.MainScreen" />
         <activity android:name=".ui.SplashScreen">
-=======
-        <activity android:name=".ui.MainScreen">
-
->>>>>>> 6ff428eae574101d1de955743b4a78d3a276b21d
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
