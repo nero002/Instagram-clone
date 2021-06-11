@@ -12,14 +12,26 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.nero.instagram_clone.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_search"
+        android:name="com.nero.instagram_clone.ui.search.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.nero.instagram_clone.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_reel"
+        android:name="com.nero.instagram_clone.ui.reel.ReelFragment"
+        android:label="@string/reel"
+        tools:layout="@layout/fragment_reel" />
+    <fragment
+        android:id="@+id/navigation_like"
+        android:name="com.nero.instagram_clone.ui.like.LikeFragment"
+        android:label="@string/likes"
+        tools:layout="@layout/fragment_like" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.nero.instagram_clone.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+
 </navigation>

@@ -2,18 +2,15 @@ package com.nero.instagram_clone.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.messaging.FirebaseMessaging
+
 import com.nero.instagram_clone.R
 import com.nero.instagram_clone.databinding.MainscreenBinding
 import com.nero.instagram_clone.models.UserModel
@@ -72,10 +69,14 @@ class MainScreen : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home,
+                R.id.navigation_search,
+                R.id.navigation_reel,
+                R.id.navigation_like,
+                R.id.navigation_profile
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
     }
 

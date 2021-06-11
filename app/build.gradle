@@ -10,6 +10,7 @@ plugins {
 }
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -57,7 +58,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.1'
     implementation 'com.google.firebase:firebase-perf:20.0.1'
+<<<<<<< HEAD
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
+=======
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+>>>>>>> 6ff428eae574101d1de955743b4a78d3a276b21d
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

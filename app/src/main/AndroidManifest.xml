@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nero.instagram_clone">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".di.MyApplication"
         android:allowBackup="true"
@@ -10,10 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InstagramClone">
+<<<<<<< HEAD
         <activity android:name=".ui.SetUserName"></activity>
         <activity android:name=".ui.LoginActivity"></activity>
         <activity android:name=".ui.MainScreen"></activity>
         <activity android:name=".ui.SplashScreen">
+=======
+        <activity android:name=".ui.MainScreen">
+
+>>>>>>> 6ff428eae574101d1de955743b4a78d3a276b21d
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
