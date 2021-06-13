@@ -2,28 +2,39 @@ package com.nero.instagram_clone.ui.camera
 
 import android.Manifest
 import android.app.Activity
+import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.AnimationDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.*
-import android.widget.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.webkit.MimeTypeMap
+import android.widget.Button
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
+import androidx.core.net.toFile
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.nero.instagram_clone.R
 import com.nero.instagram_clone.ui.MainScreen
+import com.nero.instagram_clone.utils.Constants.PICK_IMG
 import kotlinx.android.synthetic.main.fragment_camera.*
 import java.io.File
+import java.lang.Exception
 
 
 open class CameraFragment : Fragment {
@@ -43,9 +54,8 @@ open class CameraFragment : Fragment {
     lateinit var cameraFrameLayout: FrameLayout
     lateinit var captureButton: Button
     lateinit var switchCam: String
-
     lateinit var constraintLayout: ConstraintLayout
-    lateinit var curPhoto: File
+    lateinit var curPhoto: Uri
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,9 +95,8 @@ open class CameraFragment : Fragment {
                 startCamera(switchCam)
             }
             findViewById<Button>(R.id.btnSave).setOnClickListener {
-                Toast.makeText(fragContext, "Saved", Toast.LENGTH_SHORT).show()
                 val action = CameraFragmentDirections.actionNavigationCameraToPostFragment2()
-                MainScreen.tempPicPath = curPhoto.absolutePath.toString()
+                MainScreen.tempPicPath = curPhoto
                 navController.navigate(action)
             }
             findViewById<Button>(R.id.btnCancel).setOnClickListener {
@@ -97,6 +106,12 @@ open class CameraFragment : Fragment {
             captureButton.setOnClickListener {
                 takePhoto()
                 Glide.with(fragContext!!).load(curPhoto).into(imageView!!)
+            }
+
+            findViewById<Button>(R.id.btnGallery).setOnClickListener {
+                ChooseImage(it)
+                constraintLayout.visibility = View.VISIBLE
+
             }
 
             lenseSwich.setOnClickListener(View.OnClickListener {
@@ -111,12 +126,19 @@ open class CameraFragment : Fragment {
         }
     }
 
+    open fun ChooseImage(view: View?) {
+        val intent = Intent()
+        intent.type = "image/* video/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(intent, PICK_IMG)
+    }
+
     private fun takePhoto() {
         val photoFile = File(
             fragContext?.externalMediaDirs?.firstOrNull(),
             "insta_clone - ${System.currentTimeMillis()}.jpg"
         )
-        curPhoto = photoFile
+        curPhoto = Uri.fromFile(photoFile)
         Log.d("TAG", "takePhoto: " + photoFile.absolutePath.toString())
         val output = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture?.takePicture(
@@ -189,6 +211,16 @@ open class CameraFragment : Fragment {
             val photo = data?.extras!!["data"] as Bitmap?
             imageView!!.setImageBitmap(photo)
         }
+        if (requestCode == PICK_IMG || resultCode == Activity.RESULT_OK || data != null || data?.data != null) {
+            try{
+                curPhoto = data!!.data!!
+                Glide.with(fragContext!!).load(curPhoto).into(imageView!!)
+            }catch (e:Exception){
+                startCamera(switchCam)
+                Log.d("TAG", "onActivityResult: not selected anything")
+            }
+        }
+
     }
 
     override fun onResume() {

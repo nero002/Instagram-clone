@@ -120,6 +120,9 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.7.0"
     implementation 'com.r0adkll:slidableactivity:2.1.0'
 
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
     // CameraX core library using the camera2 implementation
     def camerax_version = "1.0.0"
     // The following line is optional, as the core library is included indirectly by camera-camera2
@@ -132,6 +135,10 @@ dependencies {
     // If you want to additionally use the CameraX Extensions library
     implementation "androidx.camera:camera-extensions:1.0.0-alpha25"
 
+    //rendering videos
+    implementation 'com.github.JarvanMo:ExoVideoView:2.1.6'
+
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
 
     implementation 'com.google.android.gms:play-services-drive:17.0.0'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'

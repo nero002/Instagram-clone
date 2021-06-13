@@ -178,7 +178,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     private fun updatePreference(account: GoogleSignInAccount) {
         PreferenceHelper.writeBooleanToPreference(KEY_USER_LOGGED_IN, true)
         PreferenceHelper.writeStringToPreference(KEY_USER_GOOGLE_ID, account!!.id)
@@ -253,7 +252,7 @@ class LoginActivity : AppCompatActivity() {
                                     account.email!!,
                                     account.displayName,
                                     username,
-                                    null,
+                                    account.photoUrl.toString(),
                                     null,
                                     token
                                 )
@@ -294,7 +293,7 @@ class LoginActivity : AppCompatActivity() {
                     email!!,
                     mAuth!!.currentUser!!.displayName,
                     username,
-                    null,
+                    "",
                     null,
                     token!!
                 )

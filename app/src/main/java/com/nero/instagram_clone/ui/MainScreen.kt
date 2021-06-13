@@ -1,16 +1,15 @@
 package com.nero.instagram_clone.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
-
 import com.nero.instagram_clone.R
 import com.nero.instagram_clone.databinding.MainscreenBinding
 import com.nero.instagram_clone.preferencehelper.PreferenceHelper
@@ -23,7 +22,7 @@ import java.util.*
 class MainScreen : AppCompatActivity() {
 
     companion object {
-        var tempPicPath: String = ""
+        var tempPicPath: Uri? = null
     }
 
     private lateinit var binding: MainscreenBinding

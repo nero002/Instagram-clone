@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lightgray">#52000000</color>
     <color name="sky_blue">#007cf7</color>
+    <color name="textcolor">#464646</color>
+    <color name="darkgray">#AE000000</color>
 
     <color name="orange">#F4661B</color>
 </resources>

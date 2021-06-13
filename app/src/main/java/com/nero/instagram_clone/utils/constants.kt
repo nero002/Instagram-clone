@@ -11,6 +11,7 @@ object Constants {
     const val KEY_USER_GOOGLE_GMAIL = "GOOGLEUSERGMAIL"
     const val SPLASH_LENGTH = 3000L
     const val FIREBASE_URL = "https://instagram-clone-1a661-default-rtdb.firebaseio.com/"
+    const val PICK_IMG = 19
 
 
 }
