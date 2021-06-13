@@ -12,4 +12,5 @@ object Constants {
     const val SPLASH_LENGTH = 3000L
     const val FIREBASE_URL = "https://instagram-clone-1a661-default-rtdb.firebaseio.com/"
 
+
 }

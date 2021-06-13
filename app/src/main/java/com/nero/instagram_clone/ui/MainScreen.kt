@@ -13,9 +13,7 @@ import com.google.firebase.database.*
 
 import com.nero.instagram_clone.R
 import com.nero.instagram_clone.databinding.MainscreenBinding
-import com.nero.instagram_clone.models.UserModel
 import com.nero.instagram_clone.preferencehelper.PreferenceHelper
-import com.nero.instagram_clone.utils.Constants
 import com.nero.instagram_clone.utils.Constants.KEY_USER_GOOGLE_ID
 import com.nero.instagram_clone.utils.Constants.KEY_USER_NAME
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,11 +22,16 @@ import java.util.*
 @AndroidEntryPoint
 class MainScreen : AppCompatActivity() {
 
+    companion object {
+        var tempPicPath: String = ""
+    }
+
     private lateinit var binding: MainscreenBinding
     private lateinit var ref: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         PreferenceHelper.getSharedPreferences(this)
+        homeNavigationSetup()
 
         if (PreferenceHelper.readStringFromPreference(KEY_USER_NAME) == null
             || PreferenceHelper.readStringFromPreference(KEY_USER_NAME) == ""
@@ -55,7 +58,6 @@ class MainScreen : AppCompatActivity() {
 
             })
         }
-        homeNavigationSetup()
     }
 
     private fun homeNavigationSetup() {
@@ -79,5 +81,6 @@ class MainScreen : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
     }
+
 
 }

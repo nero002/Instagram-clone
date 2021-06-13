@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.nero.instagram_clone.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_camera"
+            app:destination="@id/navigation_camera" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
@@ -32,6 +36,20 @@
         android:name="com.nero.instagram_clone.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.nero.instagram_clone.ui.camera.CameraFragment"
+        android:label="CameraFragment"
+        tools:layout="@layout/fragment_camera">
+        <action
+            android:id="@+id/action_navigation_camera_to_postFragment2"
+            app:destination="@id/postFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment2"
+        android:name="com.nero.instagram_clone.ui.externalfragments.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" />
 
 
 </navigation>
