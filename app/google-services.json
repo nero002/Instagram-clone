@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "292441207558",
+    "firebase_url": "https://instagram-clone-1a661-default-rtdb.firebaseio.com",
     "project_id": "instagram-clone-1a661",
     "storage_bucket": "instagram-clone-1a661.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "292441207558-qu33i36ou3tb24qcarm87rappd2p3vb2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nero.instagram_clone",
+            "certificate_hash": "8d65201670f6c9f83977a060fcfee82d5c9bdfca"
+          }
+        },
         {
           "client_id": "292441207558-k89ieihn3hp9t09pjslm6p52chs54mes.apps.googleusercontent.com",
           "client_type": 3

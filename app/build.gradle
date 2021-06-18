@@ -41,6 +41,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -58,6 +62,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.1'
     implementation 'com.google.firebase:firebase-perf:20.0.1'
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -102,10 +107,40 @@ dependencies {
     //dagger hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
-    //lottie
-    implementation "com.airbnb.android:lottie:3.6.1"
+
 
     implementation platform('com.google.firebase:firebase-bom:28.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+
+    //vinod Added Dependencies
+    //for custom google signin button
+    implementation 'com.shobhitpuri.custombuttons:google-signin:1.1.0'
+    //for lottie animations
+    implementation "com.airbnb.android:lottie:3.7.0"
+    implementation 'com.r0adkll:slidableactivity:2.1.0'
+
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // CameraX core library using the camera2 implementation
+    def camerax_version = "1.0.0"
+    // The following line is optional, as the core library is included indirectly by camera-camera2
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    // If you want to additionally use the CameraX Lifecycle library
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    // If you want to additionally use the CameraX View class
+    implementation "androidx.camera:camera-view:1.0.0-alpha25"
+    // If you want to additionally use the CameraX Extensions library
+    implementation "androidx.camera:camera-extensions:1.0.0-alpha25"
+
+    //rendering videos
+    implementation 'com.github.JarvanMo:ExoVideoView:2.1.6'
+
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
+
+    implementation 'com.google.android.gms:play-services-drive:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
 }
